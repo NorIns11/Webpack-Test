@@ -1,5 +1,5 @@
 # Webpack-Test
-### 用于学习webpack配置的小demo，参考文章https://segmentfault.com/a/1190000006178770
+### 用于学习webpack配置的小demo，[参考文章](https://segmentfault.com/a/1190000006178770)
 
 
 ###准备
