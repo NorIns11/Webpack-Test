@@ -4,13 +4,13 @@
 ###准备
 ####安装
 
-*生成package.json* 
-`npm init`  
+*生成package.json*  
+`npm init`
 
 package.json文件就绪后，我们在本项目中安装Webpack作为依赖包 
 
-*生成node_modules、package-lock.json*
-`npm install --save-dev webpack`     
+*生成node_modules、package-lock.json*  
+`npm install --save-dev webpack` 
 
 ####文件夹
 ######app
