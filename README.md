@@ -36,6 +36,16 @@ webpack { entry file }
 指定入口文件后，webpack可以自动识别所依赖的其他文件  
 *注：*  
 若webpack非全局安装，则需在终端额外指定其在node_modules中的地址(windows系统可能会报错，推荐全局安装webpack)  
-`node_modules/.bin/webpack app/main.js public/bundle.js`
+`node_modules/.bin/webpack app/main.js public/bundle.js`  
 
 **通过配置文件使用webpack**
+
+配置文件就是一个简单的JavaScript模块，用于存放打包相关的信息  
+在根目录下新建webpack.config.js文件,配置内容  
+配置好之后，在终端运行`webpack`即可（非全局安装需运行`node_modules/.bin/webpack`）,它会自动根据webpack.config.js中的配置进行打包  
+*更快捷的执行打包任务：*  
+非全局安装webpack是命令行语句较为繁琐，可通过npm配置后，在命令行中使用`npm start`替换该语句，这自然是极好的。在package.json中对scripts对象设置"start"字段即可  
+*注：*  
+start命令为特殊脚本名称，命令行中使用`npm start`即可，其他命令则不同，需使用`npm run { script name }`方可  
+
+###webpack的强大功能
