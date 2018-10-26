@@ -1,13 +1,13 @@
-# Webpack-Test
-### 用于学习webpack配置的小demo，[参考文章](https://segmentfault.com/a/1190000006178770)
+# Webpack-Test 
+### 用于学习webpack配置的小demo，[参考文章](https://segmentfault.com/a/1190000006178770) 
 
 
 ###准备
 ####安装
-*生成package.json*
-`npm init`     
+*生成package.json* 
+`npm init`  
 
-package.json文件就绪后，我们在本项目中安装Webpack作为依赖包
+package.json文件就绪后，我们在本项目中安装Webpack作为依赖包 
 
 *生成node_modules、package-lock.json*
 `npm install --save-dev webpack`     
