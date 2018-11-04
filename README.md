@@ -42,8 +42,8 @@ webpack { entry file }
 非全局安装webpack是命令行语句较为繁琐，可通过npm配置后，在命令行中使用`npm start`替换该语句，这自然是极好的。在package.json中对scripts对象设置"start"字段即可  
 ###### 注：
 start命令为特殊脚本名称，命令行中使用`npm start`即可，其他命令则不同，需使用`npm run { script name }`方可   
-
 ### webpack的强大功能
+
 #### 生成Source Maps（便于调试）
 在webpack的配置文件中配置source maps，需要配置**devtool**，有四种不同的配置方法：
 1. source-map
@@ -63,3 +63,29 @@ webpack可提供一个可选的本地开发服务器（基于node.js构建），
 在webpack.config.js中配置好devServer后，在package.json中配置“scripts”对象的“server”字段以开启本地服务器：  
 `"server": "webpack-dev-server --open"`  
 命令行输入“npm run server”即可在本地对应端口查看结果
+
+#### Loaders
+通过使用不同的loader，webpack可调用外部脚本或工具，实现对不同格式文件的处理，如scss-->css,ES6、ES7-->现代浏览器兼容的JS文件...  
+Loaders需单独安装并在webpack.config.js中modules关键字下配置，配置选项如下：
+1. test：匹配loader所处理文件扩展名的正则表达式
+2. loader：loader的名称
+3. include/exclude：可选，手动添加必须处理/屏蔽不需要处理的文件或文件夹
+4. query：可选，为loaders提供额外的设置选项
+
+### Babel
+Babel是一个编译JavaScript的平台，通过Babel编译代码可以达到以下目的：  
+1. 可使用最新的代码(ES6, ES7),不管当前浏览器是否支持新标准
+2. 可使用基于JavaScript的扩展语言，如React的JSX
+
+#### Babel的安装
+Babel其实是几个模块化的包，核心功能位于称为**babel-core**的npm包中，webpack可以把不同的包整合到一起使用，对于每一个需要的功能/扩展，都需要安装单独的包（`babel-env-preset`：解析ES6）  
+```
+// npm一次性安装多个依赖模块  
+npm install --save-dev babel-core babel-loader babel-preset-env babel-preset-react
+```
+
+#### Babel的配置
+1. 在**webpack.config.js**文件夹下进行配置
+2. babel具有非常多的配置选项，方法1会使得这个文件过于复杂，因此可bebel选项放在一个名为.babelrc的配置文件中
+
+### 一切皆模块
