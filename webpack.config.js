@@ -4,6 +4,7 @@ module.exports = {
   output: {
     path: __dirname + "/public",        // 打包后的文件存放的地方
     filename: "bundle.js"               // 打包后输出文件的文件名
+    // firename: "bundle-[hash].js"     // 缓存命名
   },
   devtool: 'eval-source-map',         // 配置source map
   devServer: {
@@ -33,7 +34,29 @@ module.exports = {
           loader: "babel-loader"
         },
         exclude: /node_modules/
+      },
+      // css-loader、style-loader、Sass-loader
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: "style-loader"
+          },{
+            loader: "css-loader",
+            options: {
+              modules: true,      // 启用css modules
+              localIdentName: '[name]__[local]--[hash:base64:5]' // 指定css的类名格式
+            }
+          },{
+            loader: "sass-loader"
+          }
+        ]
       }
     ]
-  }
+  },
+  // 插件，是一个数组！！！！
+  plugins: [
+    // 版权声明插件
+    new webpack.BannerPlugin('版权所有，翻版必究')
+  ]
 }
